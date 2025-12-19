@@ -1,0 +1,23 @@
+═══════════════════════════════════════════════════════════════
+    LOG DE ALERTAS DE SEGURANÇA - Monitor eBPF
+    Iniciado em: 2025-12-19 11:33:23
+═══════════════════════════════════════════════════════════════
+
+[2025-12-19 11:33:34.588] [PERIGO] [DEADLOCK_POTENCIAL] DEADLOCK POTENCIAL! Threads vão adquirir recursos em ordem diferente - risco de espera circular | Threads: [Thread-A,Thread-B] | Recursos: [R1,R2]
+[2025-12-19 11:33:35.460] [CRITICO] [DEADLOCK_CONFIRMADO] DEADLOCK CONFIRMADO! Espera circular detetada entre threads. | Threads: [Thread-A,Thread-B] | Recursos: [R2,R1]
+[2025-12-19 11:33:36.462] [CRITICO] [DEADLOCK_CONFIRMADO] DEADLOCK CONFIRMADO! Espera circular detetada entre threads. | Threads: [Thread-A,Thread-B] | Recursos: [R2,R1]
+[2025-12-19 11:33:37.463] [CRITICO] [DEADLOCK_CONFIRMADO] DEADLOCK CONFIRMADO! Espera circular detetada entre threads. | Threads: [Thread-A,Thread-B] | Recursos: [R2,R1]
+[2025-12-19 11:33:38.464] [CRITICO] [DEADLOCK_CONFIRMADO] DEADLOCK CONFIRMADO! Espera circular detetada entre threads. | Threads: [Thread-A,Thread-B] | Recursos: [R2,R1]
+[2025-12-19 11:33:39.465] [CRITICO] [DEADLOCK_CONFIRMADO] DEADLOCK CONFIRMADO! Espera circular detetada entre threads. | Threads: [Thread-A,Thread-B] | Recursos: [R2,R1]
+[2025-12-19 11:33:39.721] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-A está à espera há 5025ms pelo recurso R2 | Threads: [Thread-A] | Recursos: [R2]
+[2025-12-19 11:33:39.721] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-B está à espera há 5027ms pelo recurso R1 | Threads: [Thread-B] | Recursos: [R1]
+[2025-12-19 11:33:39.822] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-A está à espera há 5129ms pelo recurso R2 | Threads: [Thread-A] | Recursos: [R2]
+[2025-12-19 11:33:39.822] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-B está à espera há 5129ms pelo recurso R1 | Threads: [Thread-B] | Recursos: [R1]
+[2025-12-19 11:33:39.923] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-A está à espera há 5230ms pelo recurso R2 | Threads: [Thread-A] | Recursos: [R2]
+[2025-12-19 11:33:39.923] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-B está à espera há 5230ms pelo recurso R1 | Threads: [Thread-B] | Recursos: [R1]
+[2025-12-19 11:33:40.024] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-A está à espera há 5331ms pelo recurso R2 | Threads: [Thread-A] | Recursos: [R2]
+[2025-12-19 11:33:40.024] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-B está à espera há 5331ms pelo recurso R1 | Threads: [Thread-B] | Recursos: [R1]
+[2025-12-19 11:33:40.125] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-B está à espera há 5432ms pelo recurso R1 | Threads: [Thread-B] | Recursos: [R1]
+[2025-12-19 11:33:40.125] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-A está à espera há 5432ms pelo recurso R2 | Threads: [Thread-A] | Recursos: [R2]
+[2025-12-19 11:33:40.226] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-B está à espera há 5533ms pelo recurso R1 | Threads: [Thread-B] | Recursos: [R1]
+[2025-12-19 11:33:40.227] [CRITICO] [STARVATION] STARVATION detetada! Thread Thread-A está à espera há 5534ms pelo recurso R2 | Threads: [Thread-A] | Recursos: [R2]

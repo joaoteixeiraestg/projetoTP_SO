@@ -1,8 +1,7 @@
-package monitor;
+    package monitor;
 
 /**
  * Enumeração dos estados possíveis de uma thread.
- * Baseado no diagrama de estados dos processos (slides T-02):
  * - Novo (new): Processo está a ser criado
  * - Execução (running): Código está a ser executado pelo processador
  * - Espera (waiting): Processo pediu uma operação e aguarda conclusão

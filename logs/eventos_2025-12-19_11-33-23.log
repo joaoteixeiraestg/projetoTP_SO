@@ -1,0 +1,19 @@
+═══════════════════════════════════════════════════════════════
+    LOG DE EVENTOS - Simulador de Concorrência eBPF
+    Iniciado em: 2025-12-19 11:33:23
+═══════════════════════════════════════════════════════════════
+
+[11:33:34.590] [THREAD_INICIADA] Thread: Thread-A | Thread iniciou execução
+[11:33:34.590] [THREAD_INICIADA] Thread: Thread-B | Thread iniciou execução
+[11:33:34.591] [PEDIDO_RECURSO] Thread: Thread-B | Recurso: R2 | Thread solicita acesso ao recurso Recurso 2
+[11:33:34.591] [PEDIDO_RECURSO] Thread: Thread-A | Recurso: R1 | Thread solicita acesso ao recurso Recurso 1
+[11:33:34.592] [INICIO_ESPERA] Thread: Thread-A | Recurso: R1 | Thread adicionada à fila de espera. Posição: 1
+[11:33:34.592] [INICIO_ESPERA] Thread: Thread-B | Recurso: R2 | Thread adicionada à fila de espera. Posição: 1
+[11:33:34.592] [RECURSO_ADQUIRIDO] Thread: Thread-A | Recurso: R1 | Tempo espera: 1ms | Thread adquiriu o recurso Recurso 1
+[11:33:34.592] [RECURSO_ADQUIRIDO] Thread: Thread-B | Recurso: R2 | Tempo espera: 1ms | Thread adquiriu o recurso Recurso 2
+[11:33:34.593] [LOCK_ACQUIRE] Thread: Thread-A | Recurso: R1 | Lock adquirido (entrada na secção crítica)
+[11:33:34.593] [LOCK_ACQUIRE] Thread: Thread-B | Recurso: R2 | Lock adquirido (entrada na secção crítica)
+[11:33:34.693] [PEDIDO_RECURSO] Thread: Thread-B | Recurso: R1 | Thread solicita acesso ao recurso Recurso 1
+[11:33:34.693] [PEDIDO_RECURSO] Thread: Thread-A | Recurso: R2 | Thread solicita acesso ao recurso Recurso 2
+[11:33:34.693] [INICIO_ESPERA] Thread: Thread-B | Recurso: R1 | Thread adicionada à fila de espera. Posição: 1
+[11:33:34.694] [INICIO_ESPERA] Thread: Thread-A | Recurso: R2 | Thread adicionada à fila de espera. Posição: 1

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Classe que representa um evento monitorizado no sistema.
+ * Classe que representa um evento de monitorizado no sistema.
  * Cada evento regista uma ação de uma thread sobre um recurso.
  */
 public class Evento {

@@ -8,7 +8,6 @@ import java.util.Collections;
 
 /**
  * Classe que gere todos os recursos partilhados do sistema.
- * Funciona como um repositório centralizado (slides T-03 - comunicação indireta).
  */
 public class GestorRecursos {
     private final Map<String, RecursoPartilhado> recursos;

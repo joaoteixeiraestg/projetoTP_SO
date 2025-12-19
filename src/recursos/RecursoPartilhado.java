@@ -40,8 +40,8 @@ public class RecursoPartilhado {
     }
     
     /**
-     * Adquire o recurso (equivalente a wait()/down() em semáforos - slides T-04).
-     * Implementa espera bloqueante (slides T-03).
+     * Adquire o recurso (equivalente a wait()/down() em semáforos .
+     * Implementa espera bloqueante.
      */
     public void adquirir() throws InterruptedException {
         String threadId = Thread.currentThread().getName();
@@ -87,7 +87,7 @@ public class RecursoPartilhado {
     }
     
     /**
-     * Liberta o recurso (equivalente a signal()/up() em semáforos - slides T-04).
+     * Liberta o recurso (equivalente a signal()/up() em semáforos.
      */
     public void libertar() {
         String threadId = Thread.currentThread().getName();
@@ -114,7 +114,7 @@ public class RecursoPartilhado {
     }
     
     /**
-     * Tenta adquirir o recurso sem bloquear (não bloqueante - slides T-03).
+     * Tenta adquirir o recurso sem bloquear.
      * @return true se conseguiu adquirir, false caso contrário
      */
     public boolean tentarAdquirir() {

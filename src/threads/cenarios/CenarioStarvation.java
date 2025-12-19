@@ -9,7 +9,7 @@ import threads.ThreadTarefa;
 /**
  * Cenário que demonstra Starvation (Míngua/Inanição).
  * 
- * Starvation (slides T-04 e T-05):
+ * Starvation:
  * Ocorre quando um processo/thread continua ativo no sistema mas não tem acesso
  * aos recursos computacionais de que necessita, devido ao favorecimento de outras
  * threads (ex: threads de maior prioridade).
@@ -18,7 +18,7 @@ import threads.ThreadTarefa;
  * - Prioridades mal configuradas
  * - Algoritmos de escalonamento injustos
  * - Threads "gananciosas" que monopolizam recursos
- * 
+ *
  * Solução típica: Envelhecimento (aging) - aumentar prioridade com tempo de espera
  * 
  * Implicações de Cibersegurança:

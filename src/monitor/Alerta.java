@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Classe que representa um alerta de segurança gerado pelo monitor.
+ * Esta classe representa um alerta de segurança gerado pelo monitor.
  * Alertas são gerados quando são detetados problemas como:
- * - Race conditions (condições de corrida)
- * - Deadlocks (bloqueios - slides T-05)
- * - Starvation (míngua - threads que não conseguem acesso)
+ * - Race conditions
+ * - Deadlocks
+ * - Starvation
  */
 public class Alerta {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
@@ -57,7 +57,7 @@ public class Alerta {
     }
     
     /**
-     * Formato para escrita em ficheiro de log
+     * Formato para escrita nos ficheiros de log
      */
     public String toLogFormat() {
         return String.format("[%s] [%s] [%s] %s | Threads: [%s] | Recursos: [%s]",

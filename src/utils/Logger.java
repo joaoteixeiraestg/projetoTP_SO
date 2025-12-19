@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Classe utilitária para logging de eventos e alertas.
- * Grava informação em ficheiros para análise posterior.
+ * Classe para logging de eventos e alertas.
+ * Grava informação em ficheiros para analise.
  */
 public class Logger {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
@@ -90,7 +90,7 @@ public class Logger {
     }
     
     /**
-     * Regista uma mensagem genérica.
+     * Regista uma mensagem.
      */
     public synchronized void log(String mensagem) {
         if (writerEventos != null) {

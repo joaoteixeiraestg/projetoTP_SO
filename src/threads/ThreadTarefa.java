@@ -7,7 +7,6 @@ import monitor.TipoEvento;
 
 /**
  * Classe base para threads que executam tarefas no simulador.
- * Baseado no conceito de processos/threads dos slides T-02:
  * - Ciclos de CPU intercalados com operações de I/O (simulado com sleep)
  * - Estados: Nova, Pronta, Em Execução, Bloqueada, Terminada
  */

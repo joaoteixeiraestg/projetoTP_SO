@@ -12,11 +12,9 @@ import java.util.Scanner;
  * Este programa simula cenários de concorrência entre threads no acesso a
  * recursos partilhados, implementando um mecanismo de monitorização inspirado
  * no eBPF (extended Berkeley Packet Filter) para detetar:
- * - Race Conditions (condições de corrida)
- * - Deadlocks (bloqueios)
- * - Starvation (míngua/inanição)
- * 
- * Trabalho Prático de Sistemas Operativos 2025
+ * - Race Conditions
+ * - Deadlocks
+ * - Starvation
  */
 public class Main {
     
@@ -30,8 +28,9 @@ public class Main {
         System.out.println("║                                                                          ║");
         System.out.println("║          SIMULADOR DE CONCORRÊNCIA COM MONITOR eBPF                      ║");
         System.out.println("║                                                                          ║");
-        System.out.println("║          Trabalho Prático de Sistemas Operativos 2025                    ║");
+        System.out.println("║          Trabalho Prático de Sistemas Operativos                         ║");
         System.out.println("║                                                                          ║");
+        System.out.println("║        Desenvolvido por João Teixeira e Renato Barbosa                   ║");
         System.out.println("╚══════════════════════════════════════════════════════════════════════════╝");
         
         // Inicializar componentes

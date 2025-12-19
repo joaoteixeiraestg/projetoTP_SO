@@ -8,12 +8,8 @@ import threads.ThreadTarefa;
 
 /**
  * Cenário que demonstra Deadlock (Bloqueio).
- * 
- * Deadlock (slides T-05):
- * Estado em que dois ou mais processos/threads ficam bloqueados permanentemente
- * porque cada um espera por um recurso que o outro mantém.
- * 
- * Condições necessárias para deadlock (slides T-05):
+ *
+ * Condições necessárias para deadlock:
  * 1. Exclusão mútua - recursos não podem ser partilhados
  * 2. Posse e espera - thread detém recurso enquanto espera por outro
  * 3. Não preempção - recursos só podem ser libertados voluntariamente

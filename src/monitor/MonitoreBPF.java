@@ -6,17 +6,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * Monitor de Concorrência inspirado no eBPF (extended Berkeley Packet Filter).
+ * Monitor de Concorrência inspirado no eBPF.
  * 
  * O eBPF permite monitorização de eventos do kernel sem alterar o seu código.
  * Esta classe simula esse conceito, monitorizando:
  * - Acessos a recursos partilhados
  * - Deteção de race conditions, deadlocks e starvation
  * - Geração de alertas e estatísticas
- * 
- * Baseado nos conceitos dos slides:
- * - T-04: Sincronização de processos, secções críticas
- * - T-05: Deadlocks (condições, deteção com Wait-for Graph)
  */
 public class MonitoreBPF {
     
@@ -58,9 +54,9 @@ public class MonitoreBPF {
         this.ativo = false;
     }
     
-    /**
-     * Inicia o monitor e a thread de verificação periódica.
-     */
+
+     // Inicia o monitor e a thread de verificação periódica.
+
     public void iniciar() {
         ativo = true;
         threadVerificacao = new Thread(this::verificacaoPeriodica, "Monitor-eBPF");
@@ -69,9 +65,9 @@ public class MonitoreBPF {
         System.out.println("[MonitoreBPF] Monitor iniciado. Verificação periódica ativa.");
     }
     
-    /**
-     * Para o monitor.
-     */
+
+     // Para o monitor.
+
     public void parar() {
         ativo = false;
         if (threadVerificacao != null) {
@@ -81,16 +77,15 @@ public class MonitoreBPF {
         System.out.println("[MonitoreBPF] Monitor parado.");
     }
     
-    /**
-     * Regista um evento no sistema.
-     */
+
+     // Regista um evento no sistema.
+
     public void registarEvento(TipoEvento tipo, String threadId, String recursoId, String descricao) {
         registarEvento(tipo, threadId, recursoId, descricao, 0);
     }
     
-    /**
-     * Regista um evento com tempo de espera.
-     */
+    // Regista evento com tempo de espera.
+
     public void registarEvento(TipoEvento tipo, String threadId, String recursoId, 
                                String descricao, long tempoEspera) {
         Evento evento = new Evento(tipo, threadId, recursoId, descricao, tempoEspera);
@@ -103,7 +98,7 @@ public class MonitoreBPF {
         // Mostrar evento na consola (pode ser desativado)
         System.out.println(evento);
     }
-    
+
     /**
      * Processa um evento e atualiza as estruturas de monitorização.
      */
@@ -174,7 +169,6 @@ public class MonitoreBPF {
     }
 
     /**
-     * Verifica starvation (míngua) - slides T-04.
      * Ocorre quando uma thread espera por tempo excessivo.
      */
     public void verificarStarvation(String threadId, String recursoId, long inicioEspera) {
@@ -198,11 +192,6 @@ public class MonitoreBPF {
     /**
      * Verifica deadlocks usando Wait-for Graph (slides T-05).
      * Deadlock ocorre quando existe um ciclo no grafo de espera.
-     * Condições necessárias (slides T-05):
-     * 1. Exclusão mútua
-     * 2. Posse e espera
-     * 3. Não preempção
-     * 4. Espera circular
      */
     public void verificarDeadlocks() {
         // Construir grafo de espera (Wait-for Graph)

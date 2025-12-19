@@ -6,11 +6,11 @@ import monitor.TipoEvento;
 import threads.ThreadTarefa;
 
 /**
- * Cenário que demonstra Race Conditions (Condições de Corrida).
+ * Cenário que demonstra Race Conditions.
  * 
- * Race Condition (slides T-04):
+ * Race Condition:
  * - Ocorre quando múltiplas threads acedem a dados partilhados sem sincronização
- * - O resultado depende da ordem de execução (não determinístico)
+ * - O resultado depende da ordem de execução
  * - Leva a incongruência de dados
  * 
  * Implicações de Cibersegurança:

@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Classe para apresentação das estatísticas recolhidas pelo monitor.
+ * Esta classe serve para apresentação das estatísticas recolhidas pelo monitor.
  * Mostra informações sobre:
- * - Número de acessos por thread
- * - Ordem de obtenção de exclusividade
- * - Tempo médio de espera para entrada em secções críticas
+ * Número de acessos por thread
+ * Ordem de obtenção de exclusividade
+ * Tempo médio de espera para entrada em secções críticas
  */
 public class Estatisticas {
     
@@ -18,9 +18,9 @@ public class Estatisticas {
         this.monitor = monitor;
     }
     
-    /**
-     * Mostra todas as estatísticas recolhidas.
-     */
+
+     // Mostra todas as estatísticas recolhidas.
+
     public void mostrarEstatisticas() {
         System.out.println("\n");
         System.out.println("╔══════════════════════════════════════════════════════════════════════════╗");
@@ -34,9 +34,9 @@ public class Estatisticas {
         mostrarEstadoThreads();
     }
     
-    /**
-     * Mostra o número de acessos a recursos por thread.
-     */
+
+     // Mostra o número de acessos a recursos por thread.
+
     private void mostrarAcessosPorThread() {
         System.out.println("\n┌─────────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                    NÚMERO DE ACESSOS POR THREAD                          │");
@@ -59,9 +59,9 @@ public class Estatisticas {
         System.out.println("└─────────────────────────────────────────────────────────────────────────┘");
     }
     
-    /**
-     * Mostra os tempos de espera por thread.
-     */
+
+     // Mostra os tempos de espera por thread.
+
     private void mostrarTemposEspera() {
         System.out.println("\n┌─────────────────────────────────────────────────────────────────────────┐");
         System.out.println("│               TEMPO DE ESPERA EM SECÇÕES CRÍTICAS                        │");
@@ -90,9 +90,9 @@ public class Estatisticas {
         System.out.println("└─────────────────────────────────────────────────────────────────────────┘");
     }
     
-    /**
-     * Mostra a ordem em que as threads obtiveram exclusividade.
-     */
+
+     // Mostra a ordem em que as threads obtiveram exclusividade.
+
     private void mostrarOrdemExclusividade() {
         System.out.println("\n┌─────────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                  ORDEM DE OBTENÇÃO DE EXCLUSIVIDADE                      │");
@@ -111,9 +111,9 @@ public class Estatisticas {
         System.out.println("└─────────────────────────────────────────────────────────────────────────┘");
     }
     
-    /**
-     * Mostra resumo dos alertas gerados.
-     */
+
+     // Mostra resumo dos alertas gerados.
+
     private void mostrarResumoAlertas() {
         System.out.println("\n┌─────────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                      RESUMO DE ALERTAS DE SEGURANÇA                      │");
@@ -140,9 +140,9 @@ public class Estatisticas {
         System.out.println("└─────────────────────────────────────────────────────────────────────────┘");
     }
     
-    /**
-     * Mostra o estado atual das threads.
-     */
+
+     // Mostra o estado atual das threads.
+
     private void mostrarEstadoThreads() {
         System.out.println("\n┌─────────────────────────────────────────────────────────────────────────┐");
         System.out.println("│                        ESTADO FINAL DAS THREADS                          │");
