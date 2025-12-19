@@ -7,7 +7,7 @@ import monitor.TipoEvento;
 import threads.ThreadTarefa;
 
 /**
- * Cenário que demonstra Starvation (Míngua/Inanição).
+ * Cenário que demonstra Starvation..
  * 
  * Starvation:
  * Ocorre quando um processo/thread continua ativo no sistema mas não tem acesso
@@ -60,10 +60,10 @@ public class CenarioStarvation {
         
         System.out.println("--- Iniciando threads (starvation esperada) ---\n");
         
-        // Iniciar a thread gananciosa primeiro
+        // Iniciar a thread "gananciosa" primeiro
         threadGananciosa.start();
         
-        // Pequena pausa para a gananciosa adquirir o recurso
+        // Pequena pausa para a thread "gananciosa" adquirir o recurso
         Thread.sleep(100);
         
         // Iniciar as vítimas
@@ -99,7 +99,7 @@ public class CenarioStarvation {
     }
     
     /**
-     * Thread gananciosa que monopoliza o recurso.
+     * Thread que monopoliza o recurso.
      */
     private class ThreadGananciosa extends ThreadTarefa {
         
@@ -128,7 +128,7 @@ public class CenarioStarvation {
     }
     
     /**
-     * Thread vítima que sofre starvation.
+     * Thread que sofre starvation.
      */
     private class ThreadVitima extends ThreadTarefa {
         
@@ -148,6 +148,61 @@ public class CenarioStarvation {
             
             libertarRecurso("RecursoCritico");
             System.out.println("[" + getName() + "] Recurso libertado.");
+        }
+    }
+
+    /**
+     * Executa a SOLUÇÃO para Starvation usando "Polidez" (Cooperação).
+     */
+    public void executarSolucao() throws InterruptedException {
+        System.out.println("\n╔══════════════════════════════════════════════════════════════╗");
+        System.out.println("║          SOLUÇÃO STARVATION: COOPERAÇÃO (Fairness)           ║");
+        System.out.println("║                                                              ║");
+        System.out.println("║  A thread 'Cooperativa' liberta o recurso e aguarda tempo    ║");
+        System.out.println("║  suficiente para dar oportunidade às outras threads.         ║");
+        System.out.println("╚══════════════════════════════════════════════════════════════╝\n");
+
+        gestorRecursos.criarRecurso("RecursoCritico", "Recurso Crítico");
+
+        Thread threadCooperativa = new ThreadCooperativa("Thread-Cooperativa", monitor, gestorRecursos);
+        Thread threadVitima1 = new ThreadVitima("Thread-Vitima-1", monitor, gestorRecursos);
+        Thread threadVitima2 = new ThreadVitima("Thread-Vitima-2", monitor, gestorRecursos);
+
+        threadCooperativa.start();
+        Thread.sleep(50);
+        threadVitima1.start();
+        threadVitima2.start();
+
+        threadCooperativa.join();
+        threadVitima1.join();
+        threadVitima2.join();
+
+        System.out.println("\n Todas as threads executaram com sucesso!");
+    }
+
+    /**
+     * Thread Cooperativa: Usa o recurso mas espera tempo suficiente antes de voltar a tentar.
+     */
+    private class ThreadCooperativa extends ThreadTarefa {
+        public ThreadCooperativa(String nome, MonitoreBPF monitor, GestorRecursos gestorRecursos) {
+            super(nome, monitor, gestorRecursos);
+        }
+
+        @Override
+        protected void executarTarefa() throws InterruptedException {
+            for (int i = 0; i < 3; i++) {
+                System.out.println("[" + getName() + "] A pedir recurso...");
+                adquirirRecurso("RecursoCritico");
+
+                System.out.println("[" + getName() + "] A usar recurso (Rapidamente)...");
+                simularTrabalho(500);
+
+                libertarRecurso("RecursoCritico");
+
+                System.out.println("[" + getName() + "] Em pausa (Dando vez aos outros)...");
+                // Espera tempo suficiente para as outras threads entrarem
+                simularTrabalho(1000);
+            }
         }
     }
 }

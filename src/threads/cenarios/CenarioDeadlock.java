@@ -141,5 +141,57 @@ public class CenarioDeadlock {
             libertarRecurso("R2");
         }
     }
+    public void executarSolucao() throws InterruptedException {
+        System.out.println("\n╔══════════════════════════════════════════════════════════════╗");
+        System.out.println("║          SOLUÇÃO DEADLOCK: ORDENAÇÃO DE RECURSOS             ║");
+        System.out.println("║                                                              ║");
+        System.out.println("║  Para prevenir o deadlock, impomos uma ordem global:         ║");
+        System.out.println("║  Todas as threads devem pedir R1 antes de R2.                ║");
+        System.out.println("╚══════════════════════════════════════════════════════════════╝\n");
+
+        gestorRecursos.criarRecurso("R1", "Recurso 1");
+        gestorRecursos.criarRecurso("R2", "Recurso 2");
+
+        // Ambas usam a lógica segura (sempre R1 depois R2)
+        Thread threadA = new ThreadSegura("Thread-Segura-A", monitor, gestorRecursos);
+        Thread threadB = new ThreadSegura("Thread-Segura-B", monitor, gestorRecursos);
+
+        threadA.start();
+        threadB.start();
+
+        threadA.join();
+        threadB.join();
+
+        System.out.println("\n[Sistema] Execução concluída sem Deadlock!");
+    }
+
+    /**
+     * Thread Segura: Respeita a ordem dos recursos (Sempre R1 -> R2).
+     */
+    private class ThreadSegura extends ThreadTarefa {
+        public ThreadSegura(String nome, MonitoreBPF monitor, GestorRecursos gestorRecursos) {
+            super(nome, monitor, gestorRecursos);
+        }
+
+        @Override
+        protected void executarTarefa() throws InterruptedException {
+            // Ordem rigorosa: Sempre R1 primeiro
+            System.out.println("[" + getName() + "] A pedir R1 (Ordem correta)...");
+            adquirirRecurso("R1");
+
+            simularTrabalho(50); // Simula processamento
+
+            System.out.println("[" + getName() + "] A pedir R2 (Ordem correta)...");
+            adquirirRecurso("R2");
+
+            System.out.println("[" + getName() + "] Tenho ambos! A trabalhar...");
+            simularTrabalho(500);
+
+            // Libertar na ordem inversa
+            libertarRecurso("R2");
+            libertarRecurso("R1");
+            System.out.println("[" + getName() + "] Recursos libertados.");
+        }
+    }
 }
 
